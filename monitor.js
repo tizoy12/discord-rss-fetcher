@@ -60,7 +60,14 @@
        child.start() // Recreate the child
        isPerformingScheduledRestart = false
    }
-   
+var http = require('http');
+http.createServer(function (req, res) {
+  res.write("I'm alive");
+  res.end();
+}).listen(8080);
+
+
+
    restartInterval = setInterval(restartApplication, 24 * 60 * 60 * 1000)
    
    child.start();
